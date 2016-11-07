@@ -1,6 +1,6 @@
 import { FacebookAuth, User } from '@ionic/cloud-angular';
 import { NavController } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { HelloIonicPage } from '../hello-ionic/hello-ionic';
 import { Component } from '@angular/core';
 
 @Component({
@@ -24,6 +24,6 @@ export class LoginPage {
       //  }
 
       navigate() {
-        this.nav.push(HomePage);
+        this.nav.push(HelloIonicPage);
     }
 }
