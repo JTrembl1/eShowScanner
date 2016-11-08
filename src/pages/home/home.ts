@@ -15,15 +15,13 @@ export class HomePage {
 
   }
   login() {
-      // this.authenticationApi.login(this.userName, this.password).subscribe(
-      //      data => {
-      //        //Navigate to home page
-      this.facebookAuth.login().then(this.navigate);//this.nav.setRoot(HomePage));
-           }
-    //     )
-    //  }
+    this.facebookAuth.login().then(this.navigate);
+  }
 
-    navigate() {
+  navigate() {
       this.nav.push(ShowsPage);
+  }
+  fail() {
+    alert('Failed to login.');
   }
 }
