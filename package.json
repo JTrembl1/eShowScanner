@@ -1,7 +1,7 @@
 {
-  "name": "eShowScanner",
-  "author": "Gerald Tremblay",
-  "homepage": "http://event-techs.com/",
+  "name": "ionic-hello-world",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
     "build": "ionic-app-scripts build",
@@ -34,7 +34,7 @@
     "@ionic/app-scripts": "0.0.39",
     "typescript": "2.0.6"
   },
-  "description": "eShowScanner: An Ionic project",
+  "description": "myTest: An Ionic project",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
