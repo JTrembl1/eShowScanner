@@ -24,7 +24,8 @@ const cloudSettings: CloudSettings = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ShowsPage
   ],
   providers: []
 })
