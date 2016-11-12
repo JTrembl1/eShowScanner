@@ -42,8 +42,8 @@ export class ShowsPage {
 
       presentAlert(data: any) {
         let alert = this.alertCtrl.create({
-          title: 'Alert',
-          subTitle: data,
+          title: data.format,
+          subTitle: data.text,
           buttons: ['Dismiss']
         });
         alert.present();
