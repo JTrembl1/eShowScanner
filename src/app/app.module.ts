@@ -1,11 +1,9 @@
-import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
-import { LoginPage } from '../pages/login/login';
+import { HomePage } from '../pages/home/home';
+import { ShowsPage } from '../pages/shows/shows';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -16,10 +14,8 @@ const cloudSettings: CloudSettings = {
 @NgModule({
   declarations: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    LoginPage
+    HomePage,
+    ShowsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -28,10 +24,8 @@ const cloudSettings: CloudSettings = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HelloIonicPage,
-    ItemDetailsPage,
-    ListPage,
-    LoginPage
+    HomePage,
+    ShowsPage
   ],
   providers: []
 })
