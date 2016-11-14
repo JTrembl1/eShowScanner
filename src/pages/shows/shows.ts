@@ -32,7 +32,7 @@ export class ShowsPage {
 
   scan() {
           this.platform.ready().then(() => {
-              BarcodeScanner.scan().then((result) => {
+            BarcodeScanner.scan().then((result) => {
                 this.presentAlert(result);
               }, (error) => {
                 this.presentAlert(error);

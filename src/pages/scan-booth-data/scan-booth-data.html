@@ -5,13 +5,18 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>scanBoothData</ion-title>
+  <ion-navbar class="hide-border toolbar-btn-color" id="radio">
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Atendee List</ion-title>
+    <ion-buttons end>
+      <button (click)="goHome()">
+        <ion-icon ios="ios-home" md="md-home"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
 

@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ShowsPage } from '../pages/shows/shows';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import { ScanBoothDataPage } from '../pages/scan-booth-data/scan-booth-data';
 
 const cloudSettings: CloudSettings = {
   'core': {
@@ -15,7 +16,8 @@ const cloudSettings: CloudSettings = {
   declarations: [
     MyApp,
     HomePage,
-    ShowsPage
+    ShowsPage,
+    ScanBoothDataPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -25,7 +27,8 @@ const cloudSettings: CloudSettings = {
   entryComponents: [
     MyApp,
     HomePage,
-    ShowsPage
+    ShowsPage,
+    ScanBoothDataPage
   ],
   providers: []
 })
