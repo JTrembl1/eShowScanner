@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { HomePage } from '../home/home';
 /*
   Generated class for the ScanBoothData page.
 
@@ -19,4 +19,7 @@ export class ScanBoothDataPage {
     console.log('Hello ScanBoothDataPage Page');
   }
 
+  goHome() {
+    this.navCtrl.push('HomePage');
+  }
 }

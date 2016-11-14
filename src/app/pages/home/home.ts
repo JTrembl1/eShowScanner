@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FacebookAuth, User } from '@ionic/cloud-angular';
-import { AuthStore } from "../../services/auth/auth.store";
-import { AuthService } from "../../services/auth/auth.service";
-import { NavController } from 'ionic-angular';
+import { AuthStore } from "../../auth/auth.store";
+import { AuthService } from "../../auth/auth.service";
+import { NavController, LoadingController } from 'ionic-angular';
 import { ShowsPage } from '../shows/shows';
-import { Credentials } from "../../services/auth/credentials";
+import { Credentials } from "../../auth/credentials";
 import { CookieService } from "angular2-cookie/core";
 import { Http } from "../../shared/http";
 import { ApplicationConfig } from "../../shared/application-config";
@@ -24,37 +24,41 @@ export class HomePage {
   authStore : AuthStore;
   credentials : Credentials;
 
-  constructor(public nav: NavController, public facebookAuth: FacebookAuth, public user: User, authStore: AuthStore ) {
+  constructor(public nav: NavController,
+    private loadingCtrl: LoadingController,
+    authStore: AuthStore ) {
     this.nav = nav;
     this.authStore = authStore;
     this.credentials = new Credentials(null, null);
 
   }
   login() {
-    if (this.fb) {
-      this.facebookAuth.login().then(this.navigate);
-    } else {
           let creds = new Credentials(this.username, this.password);
           console.log("Creds:" + creds);
-          //this.authStore.login(creds).subscribe((data) => {
+          this.authStore.login(creds).subscribe((data) => {
+            let loading = this.loadingCtrl.create({
+                      content: 'Authenticating...'
+                    });
+                    loading.present();
           this.loggedIn = true;
           // this.token = data;
           // console.log(data);
-          this.navigate();
+          this.nav.setRoot(ShowsPage, {}, {
+            animate: true
+          }).then(() => {
+            loading.dismiss();
+          });
           return;
-          // }, (error) => {
-          //   console.log("Unable to login", error);
-          // });
+          }, (error) => {
+             console.log("Unable to login", error);
+          });
 
       // this.authStore.login(this.credentials);
       // let creds = new Credentials(this.username, this.password);
       // this.authStore.login(creds).then(this.navigate);
-    }
   }
 
-  navigate() {
-      this.nav.push(ShowsPage);
-  }
+  
   fail() {
     alert('Failed to login.');
   }

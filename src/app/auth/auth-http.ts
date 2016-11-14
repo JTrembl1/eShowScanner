@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Headers, RequestOptions } from "@angular/http";
 
-import { Http } from "../../shared/http";
+import { Http } from "../shared/http";
 import { AuthStore } from "./auth.store";
 import { Credentials } from "./credentials";
-import { ApplicationConfig } from "../../shared/application-config";
+import { ApplicationConfig } from "../shared/application-config";
 
 /**
  * Wrap the Angular Http class, and automatically add our authentication data.

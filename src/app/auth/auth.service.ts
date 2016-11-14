@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { Headers } from "@angular/http";
 import { CookieService } from "angular2-cookie/core";
-import { Http } from "../../shared/http";
+import { Http } from "../shared/http";
 import { Credentials } from "./credentials";
 import { AuthNotFoundError } from "./exceptions";
-import { ApplicationConfig } from "../../shared/application-config";
+import { ApplicationConfig } from "../shared/application-config";
 
 import { Observable } from "rxjs/Observable";
 // import { Logger } from "log4ts";
