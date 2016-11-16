@@ -57,12 +57,9 @@ export class AuthService {
     };
 
     let payload = JSON.stringify(auth);
-    //${this.config.API_URL}
     let headers = new Headers();
     headers.set("Content-Type", "application/json");
-//    headers.set("Authorization", "Basic " + btoa(`${this.config.AUTH_PREFIX}${this.config.AUTH_ID}:${this.config.AUTH_SECRET}`));
-    headers.set("Authorization", "Basic " + btoa(`asdf:asdf`));
-    console.log("Authorization", "Basic " + btoa(`asdf:asdf`));
+    headers.set("Authorization", "Basic " + btoa(`${this.config.AUTH_PREFIX}:${this.config.AUTH_SECRET}`));
     return this.http
       .post(`${this.config.API_URL}restServer/rest/auth/login`, payload, { headers: headers })
       .map((response) => response.json())

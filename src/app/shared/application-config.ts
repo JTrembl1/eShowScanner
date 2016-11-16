@@ -18,19 +18,19 @@ export class ApplicationConfig {
   private static _self: ApplicationConfig = new ApplicationConfig();
 
   /** The URL to the Lopez API */
-  API_URL: string = "http://www.fullfilllitnow.com/";
+  API_URL: string = "http://fulfilllit.com/";
 
   /** Prefix to used with the user's ID when making HTTP calls to the API. */
   API_PREFIX: string;
 
   /** String prefix sent with users credentials. This is the app prefix required by the Lopez API. */
-  AUTH_PREFIX: string;
+  AUTH_PREFIX: string = "93BCAFD12EFADF2879A3D5F3EA232AD9F";
 
   /** User ID to use for login requests. API requires auth to auth a user... */
   AUTH_ID: string;
 
   /** User token to use for login requests. Api requires auth to auth a user... */
-  AUTH_SECRET: string;
+  AUTH_SECRET: string = "A3D5F3EADF2879AFD12EFA232AD9F93BC";
 
   /** The minimum logging level for the app. Lesser logs will be omitted. */
   //LOG_LEVEL: LogLevel = LogLevel.ALL;

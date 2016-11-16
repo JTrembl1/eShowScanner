@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "eShowScanner",
+  "author": "gtremblay@gmail.com",
+  "homepage": "http://www.event-techs.com/",
   "private": true,
   "scripts": {
     "build": "ionic-app-scripts build",
@@ -22,8 +22,12 @@
     "@angular/platform-browser": "2.1.1",
     "@angular/platform-browser-dynamic": "2.1.1",
     "@angular/platform-server": "2.1.1",
+    "@angular/router": "^3.0.0",
     "@ionic/cloud-angular": "^0.7.0",
     "@ionic/storage": "1.1.6",
+    "@ngrx/core": "^1.2.0",
+    "@ngrx/router-store": "^1.2.5",
+    "@ngrx/store": "^2.2.1",
     "angular2-cookie": "^1.2.5",
     "ionic-angular": "2.0.0-rc.2",
     "ionic-native": "2.2.3",
@@ -35,7 +39,7 @@
     "@ionic/app-scripts": "0.0.39",
     "typescript": "2.0.6"
   },
-  "description": "myTest: An Ionic project",
+  "description": "An Ionic project",
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
