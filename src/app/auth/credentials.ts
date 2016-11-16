@@ -5,7 +5,7 @@
  */
 export class Credentials {
   /** The user ID */
-  id: string;
+  id: any;
 
   /** The `remember_token` of the user. */
   token: string;

@@ -8,7 +8,8 @@ import { Credentials } from "../../auth/credentials";
 import { CookieService } from "angular2-cookie/core";
 import { Http } from "../../shared/http";
 import { ApplicationConfig } from "../../shared/application-config";
-
+import { Exhibitor } from "../../models/Exhibitor";
+import {Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'page-home',
@@ -23,34 +24,43 @@ export class HomePage {
   fb : boolean = false;
   authStore : AuthStore;
   credentials : Credentials;
+  loginForm : any;
 
   constructor(public nav: NavController,
     private loadingCtrl: LoadingController,
-    authStore: AuthStore ) {
+    authStore: AuthStore,
+    private formBuilder: FormBuilder ) {
     this.nav = nav;
     this.authStore = authStore;
     this.credentials = new Credentials(null, null);
-
   }
+
+  ionViewLoaded() {
+    this.loginForm = this.formBuilder.group({
+      id: ['', Validators.required],
+      token: ['', Validators.required],
+    });
+  }
+
   login() {
-          let creds = new Credentials(this.username, this.password);
-          console.log("Creds:" + creds);
-          this.authStore.login(creds).subscribe((data) => {
-            let loading = this.loadingCtrl.create({
-                      content: 'Authenticating...'
-                    });
-                    loading.present();
-          this.loggedIn = true;
-          // this.token = data;
-          // console.log(data);
-          this.nav.setRoot(ShowsPage, {}, {
-            animate: true
-          }).then(() => {
-            loading.dismiss();
-          });
+          this.credentials.id = this.loginForm.value.id;
+          this.credentials.token = this.loginForm.value.token;
+          //let creds = new Credentials(this.username, this.password);
+          let loading = this.loadingCtrl.create({ content: 'Authenticating...'});
+          this.authStore.login(this.credentials).subscribe((exhibitor : Exhibitor) => {
+            loading.present();
+            this.loggedIn = true;
+            // this.token = data;
+            // console.log(data);
+            this.nav.setRoot(ShowsPage, {}, {
+              animate: true
+            }).then(() => {
+              loading.dismiss();
+            });
+            this.authStore.activateUser(exhibitor);
           return;
           }, (error) => {
-             console.log("Unable to login", error);
+              this.fail(error);
           });
 
       // this.authStore.login(this.credentials);
@@ -58,8 +68,8 @@ export class HomePage {
       // this.authStore.login(creds).then(this.navigate);
   }
 
-  
-  fail() {
-    alert('Failed to login.');
+  fail(error : any) {
+    alert('Failed to login:' + error);
+    return;
   }
 }

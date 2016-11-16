@@ -6,7 +6,6 @@ export class User {
   first_name: string;
   last_name: string;
   email: string;
-
   company_address1?: string;
   company_address2?: string;
   city?: string;

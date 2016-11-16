@@ -3,6 +3,7 @@ import { BehaviorSubject } from "rxjs/BehaviorSubject";
 import { Injectable } from "@angular/core";
 import { Credentials } from "./credentials";
 import { AuthService } from "./auth.service";
+import { Exhibitor } from "../models/Exhibitor";
 
 /**
  * A stateful class providing authentication information.
@@ -50,7 +51,20 @@ export class AuthStore {
    */
   login(credentials: Credentials): any {
     console.log(credentials.id + " " + credentials.token);
-    return this.authService.login(credentials);
+    let result = this.authService.login(credentials);
+
+    return result;
+  }
+
+  activateUser(exhibitor : Exhibitor){
+    if (exhibitor) {
+      console.log("Setting persona " + exhibitor.TPCExhibitorID);
+      let creds = new Credentials(exhibitor.TPCExhibitorID, exhibitor.Email);
+      this.authService.setCredentials(creds);
+      this.repo.next(creds);
+    } else {
+      this.logout();
+    }
 
   }
 

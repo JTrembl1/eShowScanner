@@ -63,7 +63,7 @@ export class AuthService {
     return this.http
       .post(`${this.config.API_URL}restServer/rest/auth/login`, payload, { headers: headers })
       .map((response) => response.json())
-      .map((userJson) => userJson.personas);
+      .map((userJson) => userJson.exhibitor);
   }
 
   /**
