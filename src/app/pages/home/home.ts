@@ -9,7 +9,7 @@ import { CookieService } from "angular2-cookie/core";
 import { Http } from "../../shared/http";
 import { ApplicationConfig } from "../../shared/application-config";
 import { Exhibitor } from "../../models/Exhibitor";
-import {Validators, FormBuilder } from '@angular/forms';
+import {Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'page-home',
@@ -20,27 +20,30 @@ export class HomePage {
   username : string;
   password : string;
   loggedIn : boolean = false;
-  token : String;
+  token : string;
   fb : boolean = false;
   authStore : AuthStore;
   credentials : Credentials;
-  loginForm : any;
+  loginForm : FormGroup;
 
   constructor(public nav: NavController,
     private loadingCtrl: LoadingController,
     authStore: AuthStore,
     private formBuilder: FormBuilder ) {
-    this.nav = nav;
-    this.authStore = authStore;
-    this.credentials = new Credentials(null, null);
+
+      this.loginForm = this.formBuilder.group({
+        id: ['', Validators.required],
+        token: ['', Validators.required],
+      });
+
+      this.nav = nav;
+      this.authStore = authStore;
+      this.credentials = new Credentials(null, null);
   }
 
-  ionViewLoaded() {
-    this.loginForm = this.formBuilder.group({
-      id: ['', Validators.required],
-      token: ['', Validators.required],
-    });
-  }
+  // ionViewDidLoad() {
+  //
+  // }
 
   login() {
           this.credentials.id = this.loginForm.value.id;
