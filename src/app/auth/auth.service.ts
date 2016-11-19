@@ -61,7 +61,7 @@ export class AuthService {
     headers.set("Content-Type", "application/json");
     headers.set("Authorization", "Basic " + btoa(`${this.config.AUTH_PREFIX}:${this.config.AUTH_SECRET}`));
     return this.http
-      .post(`${this.config.API_URL}restServer/rest/auth/login`, payload, { headers: headers })
+      .post(`${this.config.API_URL}/rest/auth/login`, payload, { headers: headers })
       .map((response) => response.json())
       .map((userJson) => userJson.exhibitor);
   }
