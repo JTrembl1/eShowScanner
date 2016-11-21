@@ -10,7 +10,7 @@
   <div>
     <img src="assets/images/et_logo.png" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
   </div>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
+  <form [formGroup]="loginForm" (ngSubmit)="skipLogin()">
   <ion-list>
   <ion-item>
     <ion-label floating>Username</ion-label>
@@ -22,8 +22,8 @@
   </ion-item>
 </ion-list>
 <div>
-  <button ion-button type="submit">Sign In</button>
+  <button  ion-button round type="submit">Sign In</button>
+
 </div>
 </form>
-
 </ion-content>

@@ -45,6 +45,12 @@ export class HomePage {
   //
   // }
 
+  skipLogin() {
+  this.nav.setRoot(ShowsPage, {}, {
+    animate: true
+  });
+  }
+
   login() {
           this.credentials.id = this.loginForm.value.id;
           this.credentials.token = this.loginForm.value.token;
