@@ -18,7 +18,7 @@ export class ApplicationConfig {
   private static _self: ApplicationConfig = new ApplicationConfig();
 
   /** The URL to the Lopez API */
-  API_URL: string = "http://localhost:8080";
+  API_URL: string = "http://localhost:9000";
 
   /** Prefix to used with the user's ID when making HTTP calls to the API. */
   API_PREFIX: string;
